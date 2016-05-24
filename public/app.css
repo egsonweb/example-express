@@ -1,0 +1,64 @@
+*,
+*:before,
+  *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+  body {
+    position: relative;
+  }
+
+header, #main, #box  {
+  position: absolute;
+}
+
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+header h1 {
+  padding: 20px 0;
+  text-align: center;
+}
+
+#main {
+  left: 0;
+  right: 0;
+  top: 77px;
+  bottom: 49px;
+}
+
+#main ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#main ul li {
+  display: block;
+  padding: 12px 30px;
+  font-size: 16px;
+}
+
+#main ul li:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+#box {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#box input {
+  width: 100%;
+  padding: 16px 20px;
+  outline: none;
+  border: none;
+  border-top: 1px #ccc solid;
+}

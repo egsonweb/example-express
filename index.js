@@ -1,20 +1,23 @@
 var express = require('express');
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+app.set('view engine', 'pug');
+app.use(express.static('public'));
+
+
+io.on('connection', function(socket) {
+  socket.on('chat', function(msg) {
+    io.emit('message', msg);
+  });
+});
+
 
 app.get('/', function(req, res) {
-  res.send('Hello world from express!');
+  res.render('home', {title: 'My Express Project', message: 'Hello World!'});
 });
 
-app.get('/about', function(req, res) {
-  res.send('About me page here!');
-});
-
-
-app.get('/contact', function(req, res) {
-  res.send('Contact page here!');
-});
-
-
-app.listen(1337, function() {
-  console.log('Server listening on port %d', app.port);
+http.listen(1337, function() {
+  console.log('Started server');
 });
